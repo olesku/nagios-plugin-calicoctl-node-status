@@ -39,7 +39,7 @@ my $calicoIsRunning = 0;
 while(<FH>) {
   $calicoIsRunning = 1 if (m/process\sis\srunning/);
 
-  my ($peer, $type, $state, $since, $info) = m/(\d+\.\d+\.\d+\.\d+)[|\s]+([a-z\-\s]+[a-z])[|\s]+([a-z\-\s]+[a-z])[|\s]+([0-9\-\s]+[0-9])[|\s]+([a-zA-Z\-\s]+[a-z])/;
+  my ($peer, $type, $state, $since, $info) = m/(\d+\.\d+\.\d+\.\d+)[|\s]+([a-z\-\s]+[a-z])[|\s]+([a-z\-\s]+[a-z])[|\s]+([0-9\:\-\s]+[0-9])[|\s]+([a-zA-Z\-\s]+[a-z])/;
   next if !defined($peer) || !defined($state) || !defined($info);
 
   if ($state ne "up") {
